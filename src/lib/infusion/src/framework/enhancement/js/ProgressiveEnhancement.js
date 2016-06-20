@@ -1,0 +1,1 @@
+var fluid_2_0_0=fluid_2_0_0||{};!function($,fluid){"use strict";fluid.registerNamespace("fluid.enhance"),fluid.contextAware.isBrowser()&&$.fn&&$("head").append("<style type='text/css'>.fl-progEnhance-basic, .fl-ProgEnhance-basic { display: none; } .fl-progEnhance-enhanced, .fl-ProgEnhance-enhanced { display: block; }</style>")}(jQuery,fluid_2_0_0);

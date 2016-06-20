@@ -1,0 +1,1 @@
+var fluid_2_0_0=fluid_2_0_0||{};!function($,fluid){"use strict";fluid.reorderLayout=function(container,userOptions){var assembleOptions={layoutHandler:"fluid.moduleLayoutHandler",selectors:{columns:".flc-reorderer-column",modules:".flc-reorderer-module"}},options=$.extend(!0,assembleOptions,userOptions);return fluid.reorderer(container,options)}}(jQuery,fluid_2_0_0);
