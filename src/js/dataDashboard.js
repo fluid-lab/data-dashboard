@@ -38,6 +38,12 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 options: {
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
+                },
+                components: {
+                    fieldTiles: {
+                        type: "floe.dataDashboard.fieldTiles",
+                        createOnEvent: "{dataDashboard}.events.onDataParsed"
+                    }
                 }
             },
             dataEntryPanel: {
@@ -51,7 +57,9 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
 
         },
         events: {
-
+            onDataParsed: null,
+            onDataLoaded: null,
+            graphTypeSelected: null,
 
         },
         listeners: {
