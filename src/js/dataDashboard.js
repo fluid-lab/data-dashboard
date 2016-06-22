@@ -63,8 +63,12 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
 
         },
         listeners: {
-
+            "floe.dataDashboard.dataPanel.dataReady" : "floe.dataDashboard.prepDataForGraphing"
         },
     })
+
+    floe.dataDashboard.prepDataForGraphing = function (dataBlob) {
+        
+    }
 
 })(jQuery, fluid);

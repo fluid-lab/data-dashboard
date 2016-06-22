@@ -53,11 +53,15 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
         
     });
 
-    floe.dataDashboard.dataPanel.startParse = function() {
+    floe.dataDashboard.dataPanel.parseRawData = function(that) {
         // May eventually consider doing the syntax validation separately in some kind of auto-parser that checks validity while typing.
 
-        // This function should 
-
+        // This function should grab the raw data string and, using the currently selected format, and pass it through the PapaParser
+        var dataStr = that.locate("rawText").val();
+        if (that.model.parser == "csv") {
+            var goodStuff = Papa.parse(dataStr);
+            that.applier.change("parsedData", goodStuff);
+        }
 
     }
 
