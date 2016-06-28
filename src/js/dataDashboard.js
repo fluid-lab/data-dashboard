@@ -25,7 +25,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             graphSelection: {
                 type: "floe.dataDashboard.graphSelector",
                 //May want createOnEvent pending templating
-                container: "{dataDashboard}.dom.graphSelections",
+                container: "{dataDashboard}.dom.graphSelection",
                 options: {
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
@@ -58,17 +58,22 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
         },
         events: {
             onDataParsed: null,
-            onDataLoaded: null,
-            graphTypeSelected: null,
-
+            onDataLoaded: null
         },
         listeners: {
-            "floe.dataDashboard.dataPanel.dataReady" : "floe.dataDashboard.prepDataForGraphing"
+            "floe.dataDashboard.dataPanel.dataReady" : "floe.dataDashboard.prepDataForGraphing",
+            "floe.dataDashboard.graphSelection.graphTypeSelected" : "floe.dataDashboard.checkData"
         },
-    })
+    });
 
     floe.dataDashboard.prepDataForGraphing = function (dataBlob) {
-        
-    }
+
+    };
+
+    floe.dataDashboard.checkData = function () {
+
+    };
+
+
 
 })(jQuery, fluid);
