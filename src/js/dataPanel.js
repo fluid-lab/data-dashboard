@@ -31,19 +31,15 @@ Licenses.
                 // May not even need
             },
             parsedData: {
-                // data: Object
-                // PapaParse returns an array of arrays for CSV
-                // first array are headers, each subsequent array is a row
+                fields: null,
+                data: null
             },
-            parser: {
-                // type: String
-                //Used to choose which parser we run
-            }
+            parser: "csv"//Will default CSV for now
         },
         events: {
             dataReady: null,
             startParse: null
-        }
+        },
         listeners: {
             "floe.dataDashboard.dataPanel.startParse": "floe.dataDashboard.dataPanel.parseRawData",
 
@@ -58,7 +54,16 @@ Licenses.
         var dataStr = that.locate("rawText").val();
         if (that.model.parser == "csv") {
             var goodStuff = Papa.parse(dataStr);
-            that.applier.change("parsedData", goodStuff);
+            if (goodStuff.errors.length == 0 ) {
+                myData = {
+                    fields: goodStuff.data[0],
+                    data: goodstuff.data.slice(1)
+                };
+                that.applier.change("parsedData", myData);
+                that.events.dataReady.fire()
+            } else {
+                // Set background to red, give feedback message
+            }
         }
 
     }

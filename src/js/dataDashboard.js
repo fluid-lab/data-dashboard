@@ -27,6 +27,10 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 //May want createOnEvent pending templating
                 container: "{dataDashboard}.dom.graphSelection",
                 options: {
+                    modelRelay: {
+                        source: "{graphSelection}.model.graph",
+                        target: "{graphCanvas}.model.graphType"
+                    }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
                 },
@@ -35,25 +39,36 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             graphCanvas: {
                 type: "floe.dataDashboard.graphCanvas",
                 container: "{dataDashboard}.dom.graphCanvas",
+                createOnEvent: "{dataDashboard}.events.onDataParsed",
                 options: {
+                    modelRelay: {
+                        source: "{dataDashboard}.model.parsedData",
+                        target: "{graphCanvas}.model.data"
+                    }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
                 },
-                components: {
-                    fieldTiles: {
-                        type: "floe.dataDashboard.fieldTiles",
-                        createOnEvent: "{dataDashboard}.events.onDataParsed"
-                    }
-                }
             },
             dataEntryPanel: {
                 type: "floe.dataDashboard.dataEntryPanel",
                 container: "{dataDashboard}.dom.dataEntryPanel",
                 options: {
+                    modelRelay: {
+                        source: "{dataEntryPanel}.model.parsedData",
+                        target: "{dataDashboard}.model.parsedData"
+                    }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
                 },
             }
+
+        },
+        model: {
+            graphSelect: false,
+            parsedData: {
+                fields: null,
+                data: null
+            },
 
         },
         events: {
@@ -67,10 +82,16 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
     });
 
     floe.dataDashboard.prepDataForGraphing = function (dataBlob) {
+        headers = dataBlob[0];
+        dataSet = datablob.slice(1);
+
 
     };
 
-    floe.dataDashboard.checkData = function () {
+    floe.dataDashboard.checkData = function (selection) {
+        if (selection != "unselected") {
+
+        }
 
     };
 

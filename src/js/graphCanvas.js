@@ -19,8 +19,34 @@ Licenses.
             dataOptions: ".floec-graphCanvas-options",
             buttons: ".floec-graphCanvas-buttons"
         },
+        model: {
+            graphType: null,
+            data: {}
+            
+        },
         components: {
+            dataFields: {
+                type: "floe.dataDashboard.graphCanvas.dataFields",
+                container: "{graphCanvas}.dom.dataFields",
+                model: {
 
+                }
+            },
+            graphRepresentation: {
+                type: "floe.dataDashboard.graphCanvas.graphRepresentation",
+                container: "{graphCanvas}.dom.graphRepresentation"
+            },
+            buttons: {
+                type: "floe.dataDashboard.graphCanvas.buttons",
+                container: "{graphCanvas}.dom.buttons"
+            }
+
+        },
+        events: {
+
+        },
+        listeners: {
+            
         }
 
     });

@@ -16,14 +16,12 @@ Licenses.
         selectors: {
             graphSelection: ".floec-graphSelecter",
         },
-        strings: {
-            defaultText: "Please choose a graph type."
-        },
         model: {
-            graph: {
-                // type: String
-                // Tells us which graph template we're going to load
-            }
+            graph: null
+        },
+        events: {
+            graphTypeSelected: null
+
         },
         listeners: {
             "onCreate.setSelectorOptions" : "floe.dataDashboard.graphSelector.setOptions",
@@ -36,12 +34,15 @@ Licenses.
     floe.dataDashboard.graphSelector.optionsBinding = function (that) {
         var selector = that.locate("graphSelection");
         selector.on("change", function () {
-            that.applier.change("graph", selector.val());
+            myVal = $(this).val()
+            that.applier.change("graph", myVal);
+            that.events.graphTypeSelected.fire(myVal);
         });
     };
 
     floe.dataDashboard.graphSelector.setOptions = function (that) {
         var options = [ 
+            { value: "unselected", name: "Please choose a graph type"},
             { value: "pie", name: "Pie Chart" },
             { value: "line", name: "Line Graph" }
         ]
