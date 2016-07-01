@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             graphCanvas: {
                 type: "floe.dataDashboard.graphCanvas",
                 container: "{dataDashboard}.dom.graphCanvas",
-                createOnEvent: "{dataDashboard}.events.onDataParsed",
+                createOnEvent: "{dataDashboard}.events.readyToGraph",
                 options: {
                     modelRelay: {
                         source: "{dataDashboard}.model.parsedData",
@@ -65,6 +65,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
         },
         model: {
             graphSelect: false,
+            doneParsing: false,
             parsedData: {
                 fields: null,
                 data: null
@@ -72,24 +73,33 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
 
         },
         events: {
-            onDataParsed: null,
-            onDataLoaded: null
+            readyToGraph: null,
         },
         listeners: {
-            "floe.dataDashboard.dataPanel.dataReady" : "floe.dataDashboard.prepDataForGraphing",
-            "floe.dataDashboard.graphSelection.graphTypeSelected" : "floe.dataDashboard.checkData"
+            "floe.dataDashboard.dataPanel.dataReady" : "floe.dataDashboard.checkGraphing",
+            "floe.dataDashboard.graphSelection.graphTypeSelected" : {
+                funcName: "floe.dataDashboard.checkData",
+                args: ["{dataDashboard}", "{arguments}.0" ]
+            }
         },
     });
 
-    floe.dataDashboard.prepDataForGraphing = function (dataBlob) {
-        headers = dataBlob[0];
-        dataSet = datablob.slice(1);
+    floe.dataDashboard.checkGraphing = function (that) {
+        that.applier.change("doneParsing", true);
+
+        if (that.model.graphSelect) {
+            that.events.readyToGraph.fire();
+        }
 
 
     };
 
-    floe.dataDashboard.checkData = function (selection) {
+    floe.dataDashboard.checkData = function (that, selection) {
         if (selection != "unselected") {
+            that.applier.change("graphSelect", true);
+            if (that.model.doneParsing) {
+                that.events.readyToGraph.fire();
+            }
 
         }
 
