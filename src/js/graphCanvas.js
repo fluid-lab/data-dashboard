@@ -21,7 +21,10 @@ Licenses.
         },
         model: {
             graphType: null,
-            data: {}
+            workingData: {
+                fields: null,
+                data: null
+            }
             
         },
         components: {
@@ -29,7 +32,7 @@ Licenses.
                 type: "floe.dataDashboard.graphCanvas.dataFields",
                 container: "{graphCanvas}.dom.dataFields",
                 model: {
-
+                    fields: "{graphCanvas}.model.workingData.fields"
                 }
             },
             graphRepresentation: {
@@ -46,9 +49,47 @@ Licenses.
 
         },
         listeners: {
+            "onCreate.testBuilder" : "floe.dataDashbaord.graphCanvas.buildTestLine"
             
         }
 
     });
 
-})(jQuery, fluid);
+    floe.dataDashboard.graphCanvas.builtTestLine = function (that) {
+        var margin = {top: 10, right: 20, left: 20, bottom: 10},
+        height = 400 - margin.top - margin.bottom,
+        width = 500 - margin.right - margin.left;
+
+        //Returns a value for placement on the svg's x-axis
+        var x = d3.scale.linear()
+                  .range([0, width]);
+
+        //Returns a value for placement on the svg's y-axis
+        var y = d3.scale.linear()
+                  .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+                      .scale(x)
+                      .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+                      .scale(y)
+                      .orient("left");
+
+        var line = d3.svg.line()
+                     .x(function(d) { return x( d.x ); })
+                     .y(function(d) { return y( d.y ); });
+
+
+
+        var svg = d3.select(".floec-graphCanvas-representation").append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+    }
+
+})(d3, jQuery, fluid);

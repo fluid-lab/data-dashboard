@@ -42,12 +42,21 @@ Licenses.
         },
         listeners: {
             "floe.dataDashboard.dataPanel.startParse": "floe.dataDashboard.dataPanel.parseRawData",
+            "onCreate.buttonBindings" : "floe.dataDashboard.dataPanel.bindTheButtons"
 
         }
         
     });
 
-    floe.dataDashboard.dataPanel.parseRawData = function(that) {
+    floe.dataDashboard.dataPanel.bindTheButtons = function (that) {
+        //Will eventually also use this for data format button
+        that.locate("parseButton").on("change", function () {
+            that.events.startParse.fire();
+        })
+    }
+
+
+    floe.dataDashboard.dataPanel.parseRawData = function (that) {
         // May eventually consider doing the syntax validation separately in some kind of auto-parser that checks validity while typing.
 
         // This function should grab the raw data string and, using the currently selected format, and pass it through the PapaParser

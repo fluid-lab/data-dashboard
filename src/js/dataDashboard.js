@@ -43,7 +43,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 options: {
                     modelRelay: {
                         source: "{dataDashboard}.model.parsedData",
-                        target: "{graphCanvas}.model.data"
+                        target: "{graphCanvas}.model.workingData"
                     }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
@@ -76,7 +76,10 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             readyToGraph: null,
         },
         listeners: {
-            "floe.dataDashboard.dataPanel.dataReady" : "floe.dataDashboard.checkGraphing",
+            "floe.dataDashboard.dataPanel.dataReady" : {
+                funcName: "floe.dataDashboard.checkGraphing",
+                args: ["{dataDashboard}"]
+            },
             "floe.dataDashboard.graphSelection.graphTypeSelected" : {
                 funcName: "floe.dataDashboard.checkData",
                 args: ["{dataDashboard}", "{arguments}.0" ]
@@ -89,6 +92,9 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
 
         if (that.model.graphSelect) {
             that.events.readyToGraph.fire();
+        } else {
+            //Will want to flash/read something to the user to remind them
+            //that they need to select a graph type
         }
 
 

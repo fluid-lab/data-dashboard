@@ -20,8 +20,18 @@
                     </select>
                 <div>
                 <div class="floec-graphCanvas">
+                    <div class="floec-graphCanvas-fields"></div>
+                    <div class="floec-graphCanvas-representation"></div>
+                    <div class="floec-graphCanvas-options"></div>
+                    <div class="floec-graphCanvas-buttons"></div>
                 </div>
                 <div class="floec-dataEntryPanel">
+                    <textarea class="floec-rawDataEntry" cols="50" rows="10">
+                        Column1, Column2, Column3
+                        1-1, 2-1, 3-1
+                        1-2, 2-2, 3-2
+                    </textarea>
+                    <button class="floec-parseButton">Parse!</button>
                 </div>
             <script>
                 floe.dataDashboard.app("#floec-dataDashboard");
