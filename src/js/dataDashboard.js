@@ -54,8 +54,8 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 container: "{dataDashboard}.dom.dataEntryPanel",
                 options: {
                     modelRelay: {
-                        source: "{dataEntryPanel}.model.parsedData",
-                        target: "{dataDashboard}.model.parsedData"
+                        source: "{dataEntryPanel}.model.rawData",
+                        target: "{dataDashboard}.model.rawData"
                     }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
@@ -66,10 +66,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
         model: {
             graphSelect: false,
             doneParsing: false,
-            parsedData: {
-                fields: null,
-                data: null
-            },
+            rawData: null,
 
         },
         events: {

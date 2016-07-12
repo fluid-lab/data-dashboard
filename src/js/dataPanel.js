@@ -30,10 +30,6 @@ Licenses.
                 // dataStr: string
                 // May not even need
             },
-            parsedData: {
-                fields: null,
-                data: null
-            },
             parser: "csv"//Will default CSV for now
         },
         events: {
@@ -61,19 +57,22 @@ Licenses.
 
         // This function should grab the raw data string and, using the currently selected format, and pass it through the PapaParser
         var dataStr = that.locate("rawText").val();
-        if (that.model.parser == "csv") {
-            var goodStuff = Papa.parse(dataStr);
-            if (goodStuff.errors.length == 0 ) {
-                myData = {
-                    fields: goodStuff.data[0],
-                    data: goodstuff.data.slice(1)
-                };
-                that.applier.change("parsedData", myData);
-                that.events.dataReady.fire()
-            } else {
-                // Set background to red, give feedback message
-            }
-        }
+        that.applier.change("rawData", dataStr);
+        that.events.dataReady.fire();
+
+        // if (that.model.parser == "csv") {
+        //     var goodStuff = Papa.parse(dataStr);
+        //     if (goodStuff.errors.length == 0 ) {
+        //         myData = {
+        //             fields: goodStuff.data[0],
+        //             data: goodstuff.data.slice(1)
+        //         };
+        //         that.applier.change("parsedData", myData);
+        //         that.events.dataReady.fire();
+        //     } else {
+        //         // Set background to red, give feedback message
+        //     }
+        // }
 
     }
 

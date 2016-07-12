@@ -21,10 +21,8 @@ Licenses.
         },
         model: {
             graphType: null,
-            workingData: {
-                fields: null,
-                data: null
-            }
+            workingData: null,
+            parser: "csv"
             
         },
         components: {
@@ -55,7 +53,7 @@ Licenses.
 
     });
 
-    floe.dataDashboard.graphCanvas.builtTestLine = function (that) {
+    floe.dataDashboard.graphCanvas.buildTestLine = function (that) {
         var margin = {top: 10, right: 20, left: 20, bottom: 10},
         height = 400 - margin.top - margin.bottom,
         width = 500 - margin.right - margin.left;
@@ -88,7 +86,7 @@ Licenses.
                     .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
+        var data = d3.csv.parse(that.model.workingData);
 
     }
 
