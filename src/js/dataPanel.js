@@ -7,7 +7,7 @@ Licenses.
 
 */
 
-(function ($, fluid) {
+(function ($, fluid, Papa) {
 
     "use strict";
 
@@ -37,7 +37,7 @@ Licenses.
             startParse: null
         },
         listeners: {
-            "floe.dataDashboard.dataPanel.startParse": "floe.dataDashboard.dataPanel.parseRawData",
+            startParse: "floe.dataDashboard.dataPanel.parseRawData",
             "onCreate.buttonBindings" : "floe.dataDashboard.dataPanel.bindTheButtons"
 
         }

@@ -42,7 +42,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 createOnEvent: "{dataDashboard}.events.readyToGraph",
                 options: {
                     modelRelay: {
-                        source: "{dataDashboard}.model.parsedData",
+                        source: "{dataDashboard}.model.rawData",
                         target: "{graphCanvas}.model.workingData"
                     }
                     //Will eventually put all listeners for selecting
@@ -73,11 +73,11 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             readyToGraph: null,
         },
         listeners: {
-            "floe.dataDashboard.dataPanel.dataReady" : {
+            "floe.dataDashboard.dataPanel.events.dataReady" : {
                 funcName: "floe.dataDashboard.checkGraphing",
                 args: ["{dataDashboard}"]
             },
-            "floe.dataDashboard.graphSelection.graphTypeSelected" : {
+            "floe.dataDashboard.graphSelection.events.graphTypeSelected" : {
                 funcName: "floe.dataDashboard.checkData",
                 args: ["{dataDashboard}", "{arguments}.0" ]
             }

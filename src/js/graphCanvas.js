@@ -7,7 +7,7 @@ Licenses.
 
 */
 
-(function ($, fluid) {
+(function (d3, $, fluid) {
 
     "use strict";
 
@@ -58,13 +58,19 @@ Licenses.
         height = 400 - margin.top - margin.bottom,
         width = 500 - margin.right - margin.left;
 
+        //Using d3's internal parsing, prob will want different parsing later
+        var data = d3.csv.parse(that.model.workingData);
+
+
         //Returns a value for placement on the svg's x-axis
         var x = d3.scale.linear()
-                  .range([0, width]);
+                  .range([0, width])
+                  .domain(d3.extent(data, function(d) { return d.x; }));;
 
         //Returns a value for placement on the svg's y-axis
         var y = d3.scale.linear()
-                  .range([height, 0]);
+                  .range([height, 0])
+                  .domain(d3.extent(data, function(d) { return d.y; }));
 
         var xAxis = d3.svg.axis()
                       .scale(x)
@@ -86,8 +92,26 @@ Licenses.
                     .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        var data = d3.csv.parse(that.model.workingData);
+
+          svg.append("g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0," + height + ")")
+              .call(xAxis);
+
+          svg.append("g")
+              .attr("class", "y axis")
+              .call(yAxis)
+            .append("text")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 6)
+              .attr("dy", ".71em")
+              .style("text-anchor", "end")
+              .text("Price ($)");
+
+          svg.append("path")
+              .datum(data)
+              .attr("class", "line")
+              .attr("d", line);
 
     }
-
 })(d3, jQuery, fluid);
