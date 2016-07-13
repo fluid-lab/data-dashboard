@@ -19,7 +19,7 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             //Add once I name CSS stuff
             graphSelection: ".floec-graphSelection",
             graphCanvas: ".floec-graphCanvas",
-            dataEntryPanel: ".floec-dataEntryPanel"
+            dataPanel: ".floec-dataPanel"
         },
         components: {
             graphSelection: {
@@ -49,9 +49,9 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                     //and clearing graphs (+ defaults?)
                 },
             },
-            dataEntryPanel: {
-                type: "floe.dataDashboard.dataEntryPanel",
-                container: "{dataDashboard}.dom.dataEntryPanel",
+            dataPanel: {
+                type: "floe.dataDashboard.dataPanel",
+                container: "{dataDashboard}.dom.dataPanel",
                 options: {
                     modelRelay: {
                         source: "{dataEntryPanel}.model.rawData",
@@ -73,11 +73,11 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             readyToGraph: null,
         },
         listeners: {
-            "floe.dataDashboard.dataPanel.events.dataReady" : {
+            "{dataPanel}.events.dataReady" : {
                 funcName: "floe.dataDashboard.checkGraphing",
                 args: ["{dataDashboard}"]
             },
-            "floe.dataDashboard.graphSelection.events.graphTypeSelected" : {
+            "{graphSelection}.events.graphTypeSelected" : {
                 funcName: "floe.dataDashboard.checkData",
                 args: ["{dataDashboard}", "{arguments}.0" ]
             }
