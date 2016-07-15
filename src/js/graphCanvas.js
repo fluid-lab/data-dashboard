@@ -20,57 +20,61 @@ Licenses.
             buttons: ".floec-graphCanvas-buttons"
         },
         model: {
-            graphType: null,
-            workingData: null,
+            graphType: "{floe.dataDashboard.graphSelector}.model.graph",
+            workingData: "{floe.dataDashboard}.model.rawData",
             parser: "csv"
             
         },
         components: {
-            dataFields: {
-                type: "floe.dataDashboard.graphCanvas.dataFields",
-                container: "{graphCanvas}.dom.dataFields",
-                model: {
-                    fields: "{graphCanvas}.model.workingData.fields"
-                }
-            },
-            graphRepresentation: {
-                type: "floe.dataDashboard.graphCanvas.graphRepresentation",
-                container: "{graphCanvas}.dom.graphRepresentation"
-            },
-            buttons: {
-                type: "floe.dataDashboard.graphCanvas.buttons",
-                container: "{graphCanvas}.dom.buttons"
-            }
+            // dataFields: {
+            //     type: "floe.dataDashboard.graphCanvas.dataFields",
+            //     container: "{graphCanvas}.dom.dataFields",
+            //     model: {
+            //         // fields: "{graphCanvas}.model.workingData.fields"
+            //     }
+            // },
+            // graphRepresentation: {
+            //     type: "floe.dataDashboard.graphCanvas.graphRepresentation",
+            //     container: "{graphCanvas}.dom.graphRepresentation"
+            // },
+            // buttons: {
+            //     type: "floe.dataDashboard.graphCanvas.buttons",
+            //     container: "{graphCanvas}.dom.buttons"
+            // }
 
         },
         events: {
 
         },
         listeners: {
-            "onCreate.testBuilder" : "floe.dataDashbaord.graphCanvas.buildTestLine"
+            "onCreate.testBuilder" : {
+                funcName: "floe.dataDashboard.graphCanvas.buildTestLine",
+                args: ["{that}"]
+            }
             
         }
 
     });
 
     floe.dataDashboard.graphCanvas.buildTestLine = function (that) {
-        var margin = {top: 10, right: 20, left: 20, bottom: 10},
+        var margin = {top: 10, right: 20, left: 20, bottom: 30},
         height = 400 - margin.top - margin.bottom,
         width = 500 - margin.right - margin.left;
 
         //Using d3's internal parsing, prob will want different parsing later
         var data = d3.csv.parse(that.model.workingData);
 
-
         //Returns a value for placement on the svg's x-axis
         var x = d3.scale.linear()
                   .range([0, width])
-                  .domain(d3.extent(data, function(d) { return d.x; }));;
+                  .domain(d3.extent(data, function(d) { return +d.x; }));;
 
         //Returns a value for placement on the svg's y-axis
         var y = d3.scale.linear()
                   .range([height, 0])
-                  .domain(d3.extent(data, function(d) { return d.y; }));
+                  .domain(d3.extent(data, function(d) { return +d.y; }));
+
+        console.log(d3.extent(data, function(d) { return +d.y; }));
 
         var xAxis = d3.svg.axis()
                       .scale(x)
@@ -81,8 +85,8 @@ Licenses.
                       .orient("left");
 
         var line = d3.svg.line()
-                     .x(function(d) { return x( d.x ); })
-                     .y(function(d) { return y( d.y ); });
+                     .x(function(d) { return x( +d.x ); })
+                     .y(function(d) { return y( +d.y ); });
 
 
 
@@ -101,17 +105,12 @@ Licenses.
           svg.append("g")
               .attr("class", "y axis")
               .call(yAxis)
-            .append("text")
-              .attr("transform", "rotate(-90)")
-              .attr("y", 6)
-              .attr("dy", ".71em")
-              .style("text-anchor", "end")
-              .text("Price ($)");
 
           svg.append("path")
               .datum(data)
               .attr("class", "line")
               .attr("d", line);
 
-    }
+    };
+
 })(d3, jQuery, fluid);

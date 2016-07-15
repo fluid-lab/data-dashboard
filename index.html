@@ -19,7 +19,7 @@
     </head>
     <body>
         <div class="floe-dataDashboard-container">
-            <div id="floec-dataDashboard"></div>
+            <div id="floec-dataDashboard">
                 <div class="floec-graphSelection">
                     <select class="floec-graphSelector">
                     </select>
@@ -31,15 +31,15 @@
                     <div class="floec-graphCanvas-buttons"></div>
                 </div>
                 <div class="floec-dataPanel">
-                    <textarea class="floec-rawDataEntry" cols="50" rows="10">Column1, Column2, Column3
-                        1-1, 2-1, 3-1
-                        1-2, 2-2, 3-2
+                    <textarea class="floec-rawDataEntry" cols="50" rows="10">x,y&#13;1,2&#13;2,4&#13;3,8&#13;4,16
                     </textarea>
                     <button class="floec-parseButton">Parse!</button>
                 </div>
-            <script>
-                floe.dataDashboard("#floec-dataDashboard");
-            </script>
+                
+            </div>
         </div>
+        <script>
+            floe.dataDashboard("#floec-dataDashboard");
+        </script>
     </body>
 </html>

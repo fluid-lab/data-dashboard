@@ -27,10 +27,6 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 //May want createOnEvent pending templating
                 container: "{dataDashboard}.dom.graphSelection",
                 options: {
-                    modelRelay: {
-                        source: "{graphSelection}.model.graph",
-                        target: "{graphCanvas}.model.graphType"
-                    }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
                 },
@@ -40,11 +36,8 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 type: "floe.dataDashboard.graphCanvas",
                 container: "{dataDashboard}.dom.graphCanvas",
                 createOnEvent: "{dataDashboard}.events.readyToGraph",
+
                 options: {
-                    modelRelay: {
-                        source: "{dataDashboard}.model.rawData",
-                        target: "{graphCanvas}.model.workingData"
-                    }
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
                 },
@@ -53,20 +46,17 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                 type: "floe.dataDashboard.dataPanel",
                 container: "{dataDashboard}.dom.dataPanel",
                 options: {
-                    modelRelay: {
-                        source: "{dataEntryPanel}.model.rawData",
-                        target: "{dataDashboard}.model.rawData"
-                    }
+
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
-                },
+                }
             }
 
         },
         model: {
             graphSelect: false,
             doneParsing: false,
-            rawData: null,
+            rawData: "{dataPanel}.model.rawData",
 
         },
         events: {

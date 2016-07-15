@@ -15,7 +15,7 @@ Licenses.
         gradeNames: ["fluid.viewComponent"],
         selectors: {
             rawText: ".floec-rawDataEntry",
-            parseButton: ".foec-parseButton",
+            parseButton: ".floec-parseButton",
             parserType: ".floec-parser"
             //Will add this after basic version works
             //sourceType: ".floec"
@@ -26,18 +26,18 @@ Licenses.
             successText: "Data parsed and ready for use!"
         },
         model: {
-            rawData: {
-                // dataStr: string
-                // May not even need
-            },
-            parser: "csv"//Will default CSV for now
+            rawData: null,
+            parser: "csv" //Will default CSV for now
         },
         events: {
             dataReady: null,
             startParse: null
         },
         listeners: {
-            startParse: "floe.dataDashboard.dataPanel.parseRawData",
+            startParse: {
+                funcName: "floe.dataDashboard.dataPanel.parseRawData",
+                args: ["{that}"]
+            },
             "onCreate.buttonBindings" : "floe.dataDashboard.dataPanel.bindTheButtons"
 
         }
@@ -46,7 +46,8 @@ Licenses.
 
     floe.dataDashboard.dataPanel.bindTheButtons = function (that) {
         //Will eventually also use this for data format button
-        that.locate("parseButton").on("change", function () {
+        that.locate("parseButton").on("click", function () {
+            console.log("fire worked")
             that.events.startParse.fire();
         })
     }
@@ -56,6 +57,7 @@ Licenses.
         // May eventually consider doing the syntax validation separately in some kind of auto-parser that checks validity while typing.
 
         // This function should grab the raw data string and, using the currently selected format, and pass it through the PapaParser
+        console.log(that);
         var dataStr = that.locate("rawText").val();
         that.applier.change("rawData", dataStr);
         that.events.dataReady.fire();

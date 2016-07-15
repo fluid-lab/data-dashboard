@@ -14,7 +14,7 @@ Licenses.
     fluid.defaults("floe.dataDashboard.graphSelector", {
         gradeNames: ["fluid.viewComponent"],
         selectors: {
-            graphSelection: ".floec-graphSelecter",
+            graphSelection: ".floec-graphSelector",
         },
         model: {
             graph: null
@@ -34,7 +34,7 @@ Licenses.
     floe.dataDashboard.graphSelector.optionsBinding = function (that) {
         var selector = that.locate("graphSelection");
         selector.on("change", function () {
-            myVal = $(this).val()
+            var myVal = $(this).val();
             that.applier.change("graph", myVal);
             that.events.graphTypeSelected.fire(myVal);
         });
@@ -48,7 +48,7 @@ Licenses.
         ]
         var selector = that.locate("graphSelection");
 
-        fluid.each(options, function (ind, val) {
+        fluid.each(options, function (val, index) {
             var newOption = "<option value=" + val.value + ">" + val.name + "</option>";
             selector.append(newOption);
         });
