@@ -13,8 +13,11 @@
 <script type="text/javascript">
 // parse a spec and create a visualization view
 function parse(spec) {
-  vg.parse.spec(spec, function(error, chart) { chart({el:"#vis", renderer: "svg"}).update(); });
+  vg.parse.spec(spec, function(error, chart) { 
+    var test = chart({el:"#vis", renderer: "svg"}).update(); 
+    console.log(test.model().scene());
+  });
 }
-parse("/test.json");
+var view = parse("/test.json");
 </script>
 </html>
