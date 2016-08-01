@@ -7,7 +7,7 @@ Licenses.
 
 */
 
-(function ($, fluid, Papa) {
+(function ($, fluid, d3) {
 
     "use strict";
 
@@ -59,25 +59,15 @@ Licenses.
         // This function should grab the raw data string and, using the currently selected format, and pass it through the PapaParser
         console.log(that);
         var dataStr = that.locate("rawText").val();
-        that.applier.change("rawData", dataStr);
-        that.events.dataReady.fire();
+        if (that.model.parser == "csv") {
+            var data = d3.csv.parse(dataStr)
+        }
 
-        // if (that.model.parser == "csv") {
-        //     var goodStuff = Papa.parse(dataStr);
-        //     if (goodStuff.errors.length == 0 ) {
-        //         myData = {
-        //             fields: goodStuff.data[0],
-        //             data: goodstuff.data.slice(1)
-        //         };
-        //         that.applier.change("parsedData", myData);
-        //         that.events.dataReady.fire();
-        //     } else {
-        //         // Set background to red, give feedback message
-        //     }
-        // }
+        that.applier.change("rawData", data);
+        that.events.dataReady.fire();
 
     }
 
 
 
-})(jQuery, fluid, Papa);
+})(jQuery, fluid, d3);
