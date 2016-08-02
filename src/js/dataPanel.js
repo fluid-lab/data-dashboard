@@ -62,7 +62,7 @@ Licenses.
         if (that.model.parser == "csv") {
             var data = d3.csv.parse(dataStr)
         }
-
+    
         that.applier.change("rawData", data);
         that.events.dataReady.fire();
 

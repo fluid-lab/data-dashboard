@@ -61,7 +61,7 @@ Licenses.
 
     });
 
-    floe.dataDashbaord.graphCanvas.parseTheData = function (that) {
+    floe.dataDashboard.graphCanvas.parseTheData = function (that) {
         // Expect that it will have been d3 parsed; meaning it'll be in JSON format
         var fields = map.keys(that.model.workingdata[0]);
         that.events.dataParsed.fire(fields);
