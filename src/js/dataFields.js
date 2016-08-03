@@ -35,13 +35,13 @@ Licenses.
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
         fluid.each(fields, function (val, index){
             var nextField = "<li value=" + val + ">" + val + "</li>";
-            nextField.on("click", function () {
-                var myVal = $(this).val();
-                console.log(myVal);
-            })
             tilesDiv.append(nextField);
         });
         tilesDiv.append("</ol>");
+        $(".floec-dataFields-tiles").on("click", "li", function () {
+            var myVal = $(this).val();
+            console.log(myVal);
+        })
 
     };
 

@@ -32,8 +32,8 @@ Licenses.
     });
 
     floe.dataDashboard.graphSelector.optionsBinding = function (that) {
-        var selector = that.locate("graphSelection");
-        selector.on("change", function () {
+        var dropDown = that.locate("graphSelection");
+        dropDown.on("change", function () {
             var myVal = $(this).val();
             that.applier.change("graph", myVal);
             that.events.graphTypeSelected.fire(myVal);
