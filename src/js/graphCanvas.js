@@ -31,7 +31,6 @@ Licenses.
             dataFields: {
                 type: "floe.dataDashboard.graphCanvas.dataFields",
                 container: "{graphCanvas}.dom.dataFields",
-                createOnEvent: "floe.dataDashboard.graphCanvas.dataParsed"
             },
             graphRepresentation: {
                 type: "floe.dataDashboard.graphCanvas.graphRepresentation",
@@ -53,8 +52,8 @@ Licenses.
                 args: ["{that}"]
             },
             "onCreate.parseData" : {
-                funcName: "{graphCanvas}.parseTheData",
-                args: "[{that}]"
+                funcName: "floe.dataDashboard.graphCanvas.parseTheData",
+                args: ["{that}"]
             }
             
         }
@@ -63,7 +62,7 @@ Licenses.
 
     floe.dataDashboard.graphCanvas.parseTheData = function (that) {
         // Expect that it will have been d3 parsed; meaning it'll be in JSON format
-        var fields = d3.keys(that.model.workingdata[0]);
+        var fields = d3.keys(that.model.workingData[0]);
         that.events.dataParsed.fire(fields);
 
     }

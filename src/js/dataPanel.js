@@ -60,7 +60,7 @@ Licenses.
         console.log(that);
         var dataStr = that.locate("rawText").val();
         if (that.model.parser == "csv") {
-            var data = d3.csv.parse(dataStr)
+            var data = d3.csvParse(dataStr)
         }
     
         that.applier.change("rawData", data);

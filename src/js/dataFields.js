@@ -20,8 +20,8 @@ Licenses.
             fieldSelection: null
         },
         listeners: {
-            "{floe.dataDashboard.graphCanvas}.events.dataParsed" : {
-                funcName: "floe.dataDashboard.dataFields.createTiles",
+            "{graphCanvas}.events.dataParsed" : {
+                funcName: "floe.dataDashboard.graphCanvas.dataFields.createTiles",
                 args: ["{dataFields}", "{arguments}.0"]
             }
         },
@@ -32,9 +32,10 @@ Licenses.
 
     });
 
-    floe.dataDashboard.dataFields.createTiles = function (that, fields) {
+    floe.dataDashboard.graphCanvas.dataFields.createTiles = function (that, fields) {
         
-        tilesDiv = that.locate("fieldTiles");
+        var tilesDiv = that.locate("");
+        console.log(tilesDiv);
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
         fluid.each(fields, function (val, index){
             var nextField = "<li value=" + val + ">" + val + "</li>";
@@ -53,7 +54,7 @@ Licenses.
 
     };
 
-    floe.dataDashboard.dataFields.replaceTiles = function (that, fields) {
+    floe.dataDashboard.graphCanvas.dataFields.replaceTiles = function (that, fields) {
         //For when the selection stage changes
     }
 

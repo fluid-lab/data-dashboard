@@ -1,4 +1,4 @@
-!function ($, fluid) {
+(function ($, fluid) {
 
     "use strict";
 
