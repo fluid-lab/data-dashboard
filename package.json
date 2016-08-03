@@ -1,7 +1,7 @@
 {
-  "name": "dataDashboard",
+  "name": "fluid-data-dashboard",
   "description": "An application for rapidly prototyping accessible data graphics.",
-  "version": "0.1",
+  "version": "0.0.1",
   "author": "Michael Skirpan",
   "bugs": "https://issues.fluidproject.org",
   "homepage": "http://www.fluidproject.org/",
@@ -30,8 +30,10 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "d3": "^4.2.1",
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.9.0",
-    "grunt-jsonlint": "1.0.4"
+    "grunt-jsonlint": "1.0.4",
+    "infusion": "^2.0.0-dev.20160519T222603Z.754d2c6"
   }
 }

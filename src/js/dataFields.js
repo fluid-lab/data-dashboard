@@ -16,6 +16,9 @@ Licenses.
         selectors: {
             fieldTiles: ".floec-dataFields-tiles"
         },
+        events: {
+            fieldSelection: null
+        },
         listeners: {
             "{floe.dataDashboard.graphCanvas}.events.dataParsed" : {
                 funcName: "floe.dataDashboard.dataFields.createTiles",
@@ -29,7 +32,7 @@ Licenses.
 
     });
 
-    floe.dataDashbaord.dataFields.createTiles = function (that, fields) {
+    floe.dataDashboard.dataFields.createTiles = function (that, fields) {
         
         tilesDiv = that.locate("fieldTiles");
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
@@ -40,10 +43,19 @@ Licenses.
         tilesDiv.append("</ol>");
         $(".floec-dataFields-tiles").on("click", "li", function () {
             var myVal = $(this).val();
-            console.log(myVal);
+            if (that.model.state == null) {
+                //Throw error to user in future
+                console.log(myVal);
+            } else {
+                that.events.fieldSelection.fire(myVal);
+            }
         })
 
     };
+
+    floe.dataDashboard.dataFields.replaceTiles = function (that, fields) {
+        //For when the selection stage changes
+    }
 
 })(d3, jQuery, fluid);
 
