@@ -14,7 +14,8 @@ Licenses.
     fluid.defaults("floe.dataDashboard.graphCanvas.dataFields", {
         gradeNames: ["fluid.viewComponent"],
         selectors: {
-            fieldTiles: ".floec-dataFields-tiles"
+            fieldTiles: ".floec-dataFields-tiles",
+            container: ""
         },
         events: {
             fieldSelection: null
@@ -34,23 +35,24 @@ Licenses.
 
     floe.dataDashboard.graphCanvas.dataFields.createTiles = function (that, fields) {
         
-        var tilesDiv = that.locate("");
-        console.log(tilesDiv);
+        var tilesDiv = that.locate("container");
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
+        var list = $(".floec-dataFields-tiles")
         fluid.each(fields, function (val, index){
-            var nextField = "<li value=" + val + ">" + val + "</li>";
-            tilesDiv.append(nextField);
+            var nextField = "<li class='border-bottom' value=" + val + ">" + val + "</li>";
+            list.append(nextField);
         });
-        tilesDiv.append("</ol>");
         $(".floec-dataFields-tiles").on("click", "li", function () {
-            var myVal = $(this).val();
+            console.log(this);
+            var myVal = $(this).text();
             if (that.model.state == null) {
                 //Throw error to user in future
                 console.log(myVal);
             } else {
+                console.log("live fire");
                 that.events.fieldSelection.fire(myVal);
             }
-        })
+        });
 
     };
 

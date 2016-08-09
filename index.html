@@ -3,9 +3,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="src/css/data-dashboard.css" />
-
-
         <script type="text/javascript" src="node_modules/infusion/products/infusion/infusion-all.js"></script>
         <script type="text/javascript" src="node_modules/d3/build/d3.js"></script>
 
@@ -17,25 +14,31 @@
         <script type="text/javascript" src="src/js/dataFields.js"></script>
         <script type="text/javascript" src="src/js/dataOptions.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="src/css/data-dashboard.css" />
+
+        <link href="https://npmcdn.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+
         <title>Data Dashboard</title>
     </head>
     <body>
         <div class="floe-dataDashboard-container">
             <div id="floec-dataDashboard">
-                <div class="floec-graphSelection">
+                <div class="floec-graphSelection center">
                     <select class="floec-graphSelector">
                     </select>
                 </div>
-                <div class="floec-graphCanvas">
-                    <div class="floec-graphCanvas-fields"></div>
-                    <div class="floec-graphCanvas-representation"></div>
-                    <div class="floec-graphCanvas-options"></div>
-                    <div class="floec-graphCanvas-buttons"></div>
+                <div class="floec-graphCanvas clearfix inline-block">
+                    <div class="floec-graphCanvas-fields col-3 align-top"></div>
+                    <div class="floec-graphCanvas-representation col-8"></div>
+                    <div class="col-9 mx-auto">
+                        <div class="floec-graphCanvas-options"></div>
+                    </div>
                 </div>
-                <div class="floec-dataPanel">
-                    <textarea class="floec-rawDataEntry" cols="50" rows="10">x,y&#13;1,2&#13;2,4&#13;3,8&#13;4,16
-                    </textarea>
-                    <button class="floec-parseButton">Parse!</button>
+                <div class="floec-dataPanel mx-auto col-8">
+                    <div class="flex flex-column">
+                        <textarea class="floec-rawDataEntry" cols="50" rows="10">x,y&#13;1,2&#13;2,4&#13;3,8&#13;4,16</textarea>
+                        <button class="floec-parseButton">Parse!</button>
+                    </div>
                 </div>
                 
             </div>

@@ -1,5 +1,6 @@
 body {
   font: 10px sans-serif;
+  background-color: #F3E0E1;
 }
 
 .axis path,
@@ -19,6 +20,56 @@ body {
   stroke-width: 1.5px;
 }
 
+ol {
+    list-style: none;
+}
+
 .floec-dataPanel {
     margin-top: 10px;
+}
+
+.floec-graphCanvas-fields {
+    margin-left: 10px;
+    margin-right: 5px;
+    display: inline-block;
+
+}
+
+.floec-graphCanvas-representation {
+    display: inline-block;
+}
+
+.floec-graphSelection {
+    margin-bottom: 20px;
+}
+
+.floec-graphSelection select {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: white;
+    background-color: #FB4E5B;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.floec-parseButton {
+    width: 15%;
+    height: 12%;
+    font-size: 18px;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: #537C4C;
+    background-color: #C2D0BF;
+    margin-top: 2px;
+}
+
+.floec-parseButton:hover {
+    background-color: #537C4C;
+};
+
+
+.floec-dataFields-tiles:hover {
+    background-color: #9C555A;
 }

@@ -11,8 +11,8 @@
 
     floe.dataDashboard.graphCanvas.graphRepresentation.buildTestLine = function (that) {
         var margin = {top: 10, right: 20, left: 20, bottom: 30},
-        height = 400 - margin.top - margin.bottom,
-        width = 500 - margin.right - margin.left;
+        height = 450 - margin.top - margin.bottom,
+        width = 600 - margin.right - margin.left;
 
         //Using d3's internal parsing, prob will want different parsing later
         var data = that.model.workingData;

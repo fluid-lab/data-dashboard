@@ -16,8 +16,7 @@ Licenses.
         selectors: {
             dataFields: ".floec-graphCanvas-fields",
             graphRepresentation: ".floec-graphCanvas-representation",
-            dataOptions: ".floec-graphCanvas-options",
-            buttons: ".floec-graphCanvas-buttons"
+            dataOptions: ".floec-graphCanvas-options"
         },
         model: {
             graphType: "{floe.dataDashboard.graphSelector}.model.graph",
