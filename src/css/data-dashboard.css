@@ -1,6 +1,11 @@
 body {
-  font: 10px sans-serif;
   background-color: #F3E0E1;
+  font-family: 'Oxygen', sans-serif;
+}
+
+textarea {
+    font-family: 'Oxygen';
+    font-size: 16px;
 }
 
 .axis path,
@@ -30,9 +35,17 @@ ol {
 
 .floec-graphCanvas-fields {
     margin-left: 10px;
-    margin-right: 5px;
+    margin-right: 15px;
     display: inline-block;
+    background-color: #BEA3D0;
+    height: 100%;
+    box-shadow: 2px 2px 3px;
 
+}
+
+.floec-graphCanvas-fields h2 {
+    margin-bottom: 0px;
+    --webkit-margin-after: 0px;
 }
 
 .floec-graphCanvas-representation {
@@ -65,11 +78,28 @@ ol {
     margin-top: 2px;
 }
 
+
+
 .floec-parseButton:hover {
     background-color: #537C4C;
-};
+}
+
+.floec-dataFields-tiles {
+    font-family: 'Lora';
+    font-size: 16px;
+    line-height: 2rem;
+    overflow: scroll;
+    height: 100%;
+    padding-left: 0em;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+}
+
+.floec-dataFields-tiles li {
+    padding-left: 1em;
+}
 
 
-.floec-dataFields-tiles:hover {
+.floec-dataFields-tiles li:hover {
     background-color: #9C555A;
 }

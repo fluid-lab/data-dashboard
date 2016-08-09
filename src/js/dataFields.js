@@ -36,6 +36,8 @@ Licenses.
     floe.dataDashboard.graphCanvas.dataFields.createTiles = function (that, fields) {
         
         var tilesDiv = that.locate("container");
+        tilesDiv.addClass("border");
+        tilesDiv.append("<h2 class='floec-dataFields-head center border-bottom'>Data Fields</h2>");
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
         var list = $(".floec-dataFields-tiles")
         fluid.each(fields, function (val, index){
@@ -43,7 +45,6 @@ Licenses.
             list.append(nextField);
         });
         $(".floec-dataFields-tiles").on("click", "li", function () {
-            console.log(this);
             var myVal = $(this).text();
             if (that.model.state == null) {
                 //Throw error to user in future
