@@ -35,6 +35,7 @@
             optionsDiv.append("<button class='bind-y m1 p1'>Bind Y Axis</button>");
 
             $('.bind-x').on("click", function () {
+                $(this).css("background-color", "red");
                 that.applier.change("selectionState", ["bind", "x"]);
 
                 that.events.dataSelectionContext.fire("bind");
@@ -42,6 +43,7 @@
             });
 
             $('.bind-y').on("click", function () {
+                $(this).css("background-color", "red");
                 that.applier.change("selectionState", ["bind", "y"]);
 
                 that.events.dataSelectionContext.fire("bind");

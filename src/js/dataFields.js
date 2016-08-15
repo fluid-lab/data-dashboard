@@ -24,7 +24,7 @@ Licenses.
             "{graphCanvas}.events.dataParsed" : {
                 funcName: "floe.dataDashboard.graphCanvas.dataFields.createTiles",
                 args: ["{dataFields}", "{arguments}.0"]
-            }
+            },
         },
         model: {
             fields: [],
@@ -35,16 +35,18 @@ Licenses.
 
     floe.dataDashboard.graphCanvas.dataFields.createTiles = function (that, fields) {
         
+        that.applier.change("fields", fields);
         var tilesDiv = that.locate("container");
         tilesDiv.addClass("border");
         tilesDiv.append("<h2 class='floec-dataFields-head center border-bottom'>Data Fields</h2>");
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
         var list = $(".floec-dataFields-tiles");
-        
+
         fluid.each(fields, function (val, index){
             var nextField = "<li class='border-bottom' value=" + val + ">" + val + "</li>";
             list.append(nextField);
         });
+
         $(".floec-dataFields-tiles").on("click", "li", function () {
             var myVal = $(this).text();
             if (that.model.state == null) {
@@ -52,6 +54,7 @@ Licenses.
                 console.log(myVal);
             } else {
                 console.log("live fire");
+                console.log(that.model.state);
                 that.events.fieldSelection.fire(myVal);
             }
         });
