@@ -18,14 +18,21 @@
 
         <link href="https://npmcdn.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css?family=Lora|Oxygen" rel="stylesheet">
+
         <title>Data Dashboard</title>
     </head>
     <body>
         <div class="floe-dataDashboard-container">
             <div id="floec-dataDashboard">
-                <div class="floec-graphSelection center">
-                    <select class="floec-graphSelector">
-                    </select>
+                <div class="floec-dashboardHead flex">
+                    <div class="floec-graphSelection">
+                        <select class="floec-graphSelector">
+                        </select>
+                    </div>
+                    <div class="floec-graphMessage border p1">
+                        Please insert some valid data, select a graph type, and click "Parse!" to get started.
+                    </div>
                 </div>
                 <div class="floec-graphCanvas clearfix inline-block">
                     <div class="floec-graphCanvas-fields col-3 align-top"></div>
