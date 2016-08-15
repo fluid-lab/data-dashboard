@@ -23,7 +23,7 @@ Licenses.
             workingData: "{floe.dataDashboard}.model.rawData",
             currentSelection: {
             },
-            selectionState: null,
+            selectionState: "{dataOptions}.model.selectionState",
             
         },
         components: {
@@ -37,11 +37,12 @@ Licenses.
             },
             dataOptions: {
                 type: "floe.dataDashboard.graphCanvas.dataOptions",
-                container: "{graphCanvas}.dom.dataOptions"
+                container: "{graphCanvas}.dom.dataOptions",
+                // createOnEvent: "{graphCanvas}.events.dataParsed"
             },
         },
         events: {
-            dataParsed: null
+            dataParsed: null,
 
         },
         listeners: {
@@ -63,7 +64,6 @@ Licenses.
         // Expect that it will have been d3 parsed; meaning it'll be in JSON format
         var fields = d3.keys(that.model.workingData[0]);
         that.events.dataParsed.fire(fields);
-
     }
 
     

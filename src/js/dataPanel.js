@@ -57,7 +57,6 @@ Licenses.
         // May eventually consider doing the syntax validation separately in some kind of auto-parser that checks validity while typing.
 
         // This function should grab the raw data string and, using the currently selected format, and pass it through the PapaParser
-        console.log(that);
         var dataStr = that.locate("rawText").val();
         if (that.model.parser == "csv") {
             var data = d3.csvParse(dataStr)
