@@ -39,7 +39,8 @@ Licenses.
         tilesDiv.addClass("border");
         tilesDiv.append("<h2 class='floec-dataFields-head center border-bottom'>Data Fields</h2>");
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
-        var list = $(".floec-dataFields-tiles")
+        var list = $(".floec-dataFields-tiles");
+        
         fluid.each(fields, function (val, index){
             var nextField = "<li class='border-bottom' value=" + val + ">" + val + "</li>";
             list.append(nextField);
