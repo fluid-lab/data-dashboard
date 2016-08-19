@@ -16,7 +16,9 @@ Licenses.
         selectors: {
             dataFields: ".floec-graphCanvas-fields",
             graphRepresentation: ".floec-graphCanvas-representation",
-            dataOptions: ".floec-graphCanvas-options"
+            dataOptions: ".floec-graphCanvas-options",
+            graphMessage: ".floec-graphMessage"
+
         },
         model: {
             graphType: "{floe.dataDashboard.graphSelector}.model.graph",
@@ -39,6 +41,10 @@ Licenses.
                 type: "floe.dataDashboard.graphCanvas.dataOptions",
                 container: "{graphCanvas}.dom.dataOptions",
                 // createOnEvent: "{graphCanvas}.events.dataParsed"
+            },
+            graphMessage: {
+                type: "floe.dataDashboard.graphMessage",
+                container: "{dataDashboard}.dom.graphMessage"
             },
         },
         events: {

@@ -6,7 +6,7 @@
         gradeNames: ["fluid.viewComponent"],
         model: {
             graphType: "{floe.dataDashboard.graphCanvas}.model.graphType",
-            selectionState: null
+            selectionState: "default"
         },
         events: {
             dataSelectionContext: null,
@@ -35,18 +35,28 @@
             optionsDiv.append("<button class='bind-y m1 p1'>Bind Y Axis</button>");
 
             $('.bind-x').on("click", function () {
-                $(this).css("background-color", "red");
-                that.applier.change("selectionState", ["bind", "x"]);
+                if (that.model.selectionState == "default") {
+                    $(this).css("background-color", "red");
+                    that.applier.change("selectionState", ["bind", "x"]);
 
-                that.events.dataSelectionContext.fire("bind");
+                    that.events.dataSelectionContext.fire("bind");
+                else {
+                    $(this).css("background-color", "grey");
+                    that.applier.change("selectionState", "default");
+                }
 
             });
 
             $('.bind-y').on("click", function () {
-                $(this).css("background-color", "red");
-                that.applier.change("selectionState", ["bind", "y"]);
+                if (that.model.selectionState == "default") {
+                    $(this).css("background-color", "red");
+                    that.applier.change("selectionState", ["bind", "y"]);
 
-                that.events.dataSelectionContext.fire("bind");
+                    that.events.dataSelectionContext.fire("bind");
+                } else {
+                    $(this).css("background-color", "grey");
+                    that.applier.change("selectionState", "default");
+                }
 
             });
 

@@ -49,7 +49,7 @@ Licenses.
 
         $(".floec-dataFields-tiles").on("click", "li", function () {
             var myVal = $(this).text();
-            if (that.model.state == "subset") {
+            if (that.model.state == "default") {
                 //Throw error to user in future
                 console.log(myVal);
             } else {

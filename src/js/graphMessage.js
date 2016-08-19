@@ -2,7 +2,7 @@
 
     "use strict";
 
-    fluid.defaults("floe.dataDashboard.graphMessage", {
+    fluid.defaults("floe.dataDashboard.graphCanvas.graphMessage", {
         gradeNames: ["fluid.viewComponent"],
         selectors: {
             container: ""

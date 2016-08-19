@@ -20,7 +20,6 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             graphSelection: ".floec-graphSelection",
             graphCanvas: ".floec-graphCanvas",
             dataPanel: ".floec-dataPanel",
-            graphMessage: ".floec-graphMessage"
         },
         components: {
             graphSelection: {
@@ -32,10 +31,6 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
                     //and clearing graphs (+ defaults?)
                 },
 
-            },
-            graphMessage: {
-                type: "floe.dataDashboard.graphMessage",
-                container: "{dataDashboard}.dom.graphMessage"
             },
             graphCanvas: {
                 type: "floe.dataDashboard.graphCanvas",
