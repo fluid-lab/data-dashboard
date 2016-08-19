@@ -40,7 +40,7 @@
                     that.applier.change("selectionState", ["bind", "x"]);
 
                     that.events.dataSelectionContext.fire("bind");
-                else {
+                } else {
                     $(this).css("background-color", "grey");
                     that.applier.change("selectionState", "default");
                 }
