@@ -47,11 +47,11 @@ Licenses.
         },
         listeners: {
             //Only while testing
-            "onCreate.testBuilder" : {
+            "dataParsed" : {
                 funcName: "floe.dataDashboard.graphCanvas.graphRepresentation.buildTestLine",
                 args: ["{that}"]
             },
-            "onCreate.parseData" : {
+            "{dataDashboard}.events.readyToGraph" : {
                 funcName: "floe.dataDashboard.graphCanvas.parseTheData",
                 args: ["{that}"]
             }

@@ -40,8 +40,6 @@ https://raw.githubusercontent.com/fluid-project/chartAuthoring/master/LICENSE.tx
             graphCanvas: {
                 type: "floe.dataDashboard.graphCanvas",
                 container: "{dataDashboard}.dom.graphCanvas",
-                createOnEvent: "{dataDashboard}.events.readyToGraph",
-
                 options: {
                     //Will eventually put all listeners for selecting
                     //and clearing graphs (+ defaults?)
