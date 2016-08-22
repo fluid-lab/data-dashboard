@@ -6,9 +6,9 @@ As of right now, the project only supports CSV data formats and works on line gr
 
 ## Run Example
 
-If you'd like to see the tool run an example visualization, simple start by serving the directory.
+If you'd like to see the tool run an example visualization, clone the repo and follow the steps below.
 
-- Run `python -m SimpleHTTPServer 8000` in the root of the repo
+- Run `python -m SimpleHTTPServer 8000` in the root of the repo (or your favorite simple server).
 - Then take your browser to `localhost:8000` There should already be sample data in the text area. Use that or any other CSV data you want to copy and paste into the textfield.
 - Use the dropdown box at the top to select line graph.
 - Press the "Parse" button.
