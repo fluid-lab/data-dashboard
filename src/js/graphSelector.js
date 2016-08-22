@@ -43,7 +43,7 @@ Licenses.
     floe.dataDashboard.graphSelector.setOptions = function (that) {
         var options = [ 
             { value: "unselected", name: "Please choose a graph type"},
-            { value: "pie", name: "Pie Chart" },
+            //{ value: "pie", name: "Pie Chart" },
             { value: "line", name: "Line Graph" }
         ]
         var selector = that.locate("graphSelection");
