@@ -43,8 +43,8 @@ Licenses.
                 // createOnEvent: "{graphCanvas}.events.dataParsed"
             },
             graphMessage: {
-                type: "floe.dataDashboard.graphMessage",
-                container: "{dataDashboard}.dom.graphMessage"
+                type: "floe.dataDashboard.graphCanvas.graphMessage",
+                container: "{graphCanvas}.dom.graphMessage"
             },
         },
         events: {

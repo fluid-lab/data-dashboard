@@ -16,12 +16,10 @@
 
     });
 
-    floe.dataDashboard.graphMessage.graphCanvas.changeMessage = function (that, state) {
+    floe.dataDashboard.graphCanvas.graphMessage.changeMessage = function (that, state) {
 
         //Will want to simply look up the change in state and change the help message at the top
         //Probably will want to use options, maybe model?
-
-        
 
     };
 
