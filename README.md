@@ -12,10 +12,10 @@ The first iteration of this project is being supported by Google Summer of Code 
 - [x] Support CSV parsing and pass data across components
 - [x] Use d3 to get sample graph working
 - [x] Make a user-friendly design for working with data after parsing
-- [] Allow user to choose arbitrary data to bind to x,y axes
-- [] Support basic options for colors and axis customization
-- [] Add support for Pie Chart
-- [] Make graph messages accessible by attaching flocking
+- [ ] Allow user to choose arbitrary data to bind to x,y axes
+- [ ] Support basic options for colors and axis customization
+- [ ] Add support for Pie Chart
+- [ ] Make graph messages accessible by attaching flocking
 
 ## Run Example
 
