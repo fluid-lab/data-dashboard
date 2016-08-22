@@ -5,7 +5,9 @@
   "author": "Michael Skirpan",
   "bugs": "https://issues.fluidproject.org",
   "homepage": "http://www.fluidproject.org/",
-  "dependencies": {},
+  "dependencies": {
+    "d3": "^4.2.2"
+  },
   "licenses": [
     {
       "type": "BSD-3-Clause",
