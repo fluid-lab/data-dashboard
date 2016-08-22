@@ -4,6 +4,8 @@ Tool for explorative, accessible data visualisations
 ## Current State
 As of right now, the project only supports CSV data formats and works on line graphs. I am in the process of working out best practices for data selection interactions, which will then allow me to expand the types of graphs supported.
 
+If you want to get more information on deliberations and research that has gone into this work please look in the `docs/journal` directory of this repo where I've done targeted write ups about progress on this project.
+
 ## To Do
 
 The first iteration of this project is being supported by Google Summer of Code and the Inclusive Design Institute. The goals for the first iteration are listed below. The list should be up to date with currently implemented functionality.
