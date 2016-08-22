@@ -8,7 +8,7 @@
             container: ""
         },
         listeners: {
-            "{graphCanvas.dataOptions}.events.dataSelectionContext" : {
+            "{floe.dataDashboard.graphCanvas.dataOptions}.events.dataSelectionContext" : {
                 funcName: "floe.dataDashboard.graphCanvas.graphMessage.changeMessage",
                 args: ["{that}", "{arguments}.0"]
             }
