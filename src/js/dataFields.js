@@ -42,6 +42,8 @@ Licenses.
         tilesDiv.append("<ol class='floec-dataFields-tiles'>");
         var list = $(".floec-dataFields-tiles");
 
+        //Prob want to delete any fields that may be there
+
         fluid.each(fields, function (val, index){
             var nextField = "<li class='border-bottom' value=" + val + ">" + val + "</li>";
             list.append(nextField);

@@ -30,6 +30,7 @@
 
         var optionsDiv = that.locate("container");
 
+        // This should have more cleanly loaded templates for different graphs
         if (that.model.graphType == "line") {
             optionsDiv.append("<button class='bind-x m1 p1'>Bind X Axis</button>");
             optionsDiv.append("<button class='bind-y m1 p1'>Bind Y Axis</button>");
