@@ -25,6 +25,7 @@ Licenses.
                 funcName: "floe.dataDashboard.graphCanvas.dataFields.createTiles",
                 args: ["{dataFields}", "{arguments}.0"]
             },
+
         },
         model: {
             fields: [],

@@ -48,15 +48,22 @@ Licenses.
             },
         },
         events: {
-            dataParsed: null,
+            dataParsedTest: null,
 
         },
         listeners: {
             //Only while testing
-            "dataParsed" : {
+            "dataParsedTest" : {
                 funcName: "floe.dataDashboard.graphCanvas.graphRepresentation.buildTestLine",
                 args: ["{that}"]
             },
+
+            "dataParsed" : {
+                funcName: "floe.dataDashboard.graphCanvas.graphRepresentation.setCanvas",
+                args: []
+
+            },
+
             "{dataDashboard}.events.readyToGraph" : {
                 funcName: "floe.dataDashboard.graphCanvas.parseTheData",
                 args: ["{that}"]
