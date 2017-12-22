@@ -1,0 +1,124 @@
+body {
+  background-color: #F3E0E1;
+  font-family: 'Oxygen', sans-serif;
+}
+
+textarea {
+    font-family: 'Oxygen';
+    font-size: 16px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+ol {
+    list-style: none;
+}
+
+#floec-dataDashboard {
+    margin-left: 10vw;
+    margin-top: 2vh;
+}
+
+
+.floec-dashboardHead {
+    margin-bottom: 20px;
+    max-height: 10vh;
+}
+
+.floec-graphMessage {
+    background-color: #E2E2E2;
+    margin-left: 5vw;
+    margin-bottom: 1em;
+
+}
+
+.floec-graphSelection select {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: white;
+    background-color: #FB4E5B;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.floec-dataPanel {
+    margin-top: 10px;
+}
+
+
+.floec-graphCanvas-fields {
+    margin-left: 10px;
+    margin-right: 15px;
+    display: inline-block;
+    background-color: #BEA3D0;
+    max-height: 60vh;
+    box-shadow: 2px 2px 3px;
+    overflow: scroll;
+
+}
+
+.floec-graphCanvas-fields h2 {
+    margin-bottom: 0px;
+    --webkit-margin-after: 0px;
+}
+
+.floec-graphCanvas-representation {
+    display: inline-block;
+    max-height: 60vh;
+}
+
+
+
+.floec-parseButton {
+    width: 15%;
+    height: 12%;
+    font-size: 18px;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: #537C4C;
+    background-color: #C2D0BF;
+    margin-top: 2px;
+}
+
+
+
+.floec-parseButton:hover {
+    background-color: #537C4C;
+}
+
+.floec-dataFields-tiles {
+    font-family: 'Lora';
+    font-size: 16px;
+    line-height: 2rem;
+    overflow: scroll;
+    height: 100%;
+    padding-left: 0em;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+}
+
+.floec-dataFields-tiles li {
+    padding-left: 1em;
+}
+
+
+.floec-dataFields-tiles li:hover {
+    background-color: #9C555A;
+}

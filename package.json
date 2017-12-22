@@ -1,0 +1,41 @@
+{
+  "name": "fluid-data-dashboard",
+  "description": "An application for rapidly prototyping accessible data graphics.",
+  "version": "0.0.1",
+  "author": "Michael Skirpan",
+  "bugs": "https://issues.fluidproject.org",
+  "homepage": "http://www.fluidproject.org/",
+  "dependencies": {
+    "d3": "^4.2.2"
+  },
+  "licenses": [
+    {
+      "type": "BSD-3-Clause",
+      "url": "http://www.opensource.org/licenses/BSD-3-Clause"
+    },
+    {
+      "type": "ECL-2.0",
+      "url": "http://www.opensource.org/licenses/ECL-2.0"
+    }
+  ],
+  "keywords": [
+    "visualization",
+    "graphs",
+    "data",
+    "fluid",
+    "infusion",
+    "sonfication"
+  ],
+  "repository": "git://github.com/fluid-project/data-dashboard.git",
+  "main": "",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "d3": "^4.2.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.9.0",
+    "grunt-jsonlint": "1.0.4",
+    "infusion": "^2.0.0-dev.20160519T222603Z.754d2c6"
+  }
+}
